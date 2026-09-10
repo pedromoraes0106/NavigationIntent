@@ -15,7 +15,7 @@ class MainViewModel(val savedStateHandle: SavedStateHandle): ViewModel() {
         const val PARAMETER_KEY = "parameter_key"
     }
 
-    private val _parameterState = MutableStateFlow("")
+    private val _parameterState = MutableStateFlow(savedStateHandle[PARAMETER_KEY] ?: "")
     val parameterState: StateFlow<String> = _parameterState.asStateFlow()
 
     fun updateParameter(value: String){
